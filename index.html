@@ -5,8 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Image optimization</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            min-height: 100vh;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-    
+    <!--
+        This image is about 5MB, with a slow 3G internet it would take about 3 minutes to load
+    -->
+    <div class="container">
+        <h1>Uncompressed image of 5MB</h1>
+        <p>This image is about 5MB, with a slow 3G internet it would take about 3 minutes to load</p>
+        <img src="images/sky.jpg" alt="Sky">
+    </div>
+
+    <!--
+        This image is about 5MB, with a slow 3G internet it would take about 3 minutes to load
+    -->
+    <div class="container">
+        <h1>75% compressed image (This image has been compressed using Photoshop CC 2019)</h1>
+        <p>This image has load in 2 minutes instead of 3 minutes for the uncompressed version.</p>
+        <img src="images/sky-compressed.jpg" alt="Sky">
+    </div>
+
+    <div class="container">
+        <h1>75% compressed image but with differents size for differents screen sizes</h1>
+        <img
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            srcset="
+            images/sky-compressed/sky-compressed_200.pg 200w,
+            images/sky-compressed/sky-compressed_462.jpg 462w,
+            images/sky-compressed/sky-compressed_649.jpg 649w,
+            images/sky-compressed/sky-compressed_830.jpg 830w,
+            images/sky-compressed/sky-compressed_957.jpg 957w,
+            images/sky-compressed/sky-compressed_1058.jpg 1058w,
+            images/sky-compressed/sky-compressed_1163.jpg 1163w,
+            images/sky-compressed/sky-compressed_1247.jpg 1247w,
+            images/sky-compressed/sky-compressed_1333.jpg 1333w,
+            images/sky-compressed/sky-compressed_1398.jpg 1398w,
+            images/sky-compressed/sky-compressed_1400.jpg 1400w"
+            src="images/sky-compressed/sky-compressed_1400.jpg"
+            alt="Sky">
+    </div>
 </body>
 </html>
